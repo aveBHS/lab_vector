@@ -2,6 +2,8 @@
 // Created by avebh on 12.05.2023.
 //
 
+#include <stdbool.h>
+
 #ifndef LAB_V_VECTOR_H
 #define LAB_V_VECTOR_H
 
@@ -18,3 +20,6 @@ void reserve(vector *v, size_t newCapacity);
 void clear(vector *v);
 void shrinkToFit(vector *v);
 void deleteVector(vector *v);
+
+bool isEmpty(vector *v);
+bool isFull(vector *v);

@@ -2,6 +2,7 @@
 #include <stddef.h>
 #include "vector.h"
 #include <malloc.h>
+#include <assert.h>
 
 vector createVector(size_t n) {
     int *data = malloc(sizeof (int) * n);
@@ -53,4 +54,31 @@ bool isFull(vector *v) {
 
 int getVectorValue(vector *v, size_t i) {
     return v->data[i];
+}
+
+void pushBack(vector *v, int x) {
+    if(isFull(v)) {
+        reserve(v, v->size > 0 ? v->size * 2 : 1);
+    }
+
+    v->data[v->size++] = x;
+}
+
+void popBack(vector *v) {
+    assert(!isEmpty(v));
+    v->size--;
+}
+
+bool isVectorsEqual(vector *v1, vector *v2) {
+    if (v1->size == v2->size && v1->capacity == v2->capacity) {
+        for (int i = 0; i < v1->size; i++) {
+            if (getVectorValue(v1, i) != getVectorValue(v2, i)) {
+                return false;
+            }
+        }
+    } else {
+        return false;
+    }
+
+    return true;
 }

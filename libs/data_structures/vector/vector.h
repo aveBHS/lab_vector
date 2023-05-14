@@ -23,5 +23,9 @@ void deleteVector(vector *v);
 
 bool isEmpty(vector *v);
 bool isFull(vector *v);
+bool isVectorsEqual(vector *v1, vector *v2);
 
 int getVectorValue(vector *v, size_t i);
+
+void pushBack(vector *v, int x);
+void popBack(vector *v);

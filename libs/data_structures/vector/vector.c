@@ -82,3 +82,19 @@ bool isVectorsEqual(vector *v1, vector *v2) {
 
     return true;
 }
+
+int* atVector(vector *v, size_t index) {
+    if (index > v->capacity - 1) {
+        fprintf(stderr, "IndexError: a[%zu] is not exists", index);
+        exit(1);
+    }
+    return &v->data[index];
+}
+
+int* back(vector *v) {
+    return atVector(v, v->capacity - 1);
+}
+
+int* front(vector *v) {
+    return atVector(v, 0);
+}

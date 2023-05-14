@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stddef.h>
-#include "vector.h"
 #include <malloc.h>
 #include <assert.h>
+#include "vector.h"
 
 vector createVector(size_t n) {
-    int *data = malloc(sizeof (int) * n);
+    int *data = malloc(sizeof(int) * n);
     if (data == NULL) {
         fprintf(stderr, "bad alloc");
         exit(1);
@@ -57,7 +57,7 @@ int getVectorValue(vector *v, size_t i) {
 }
 
 void pushBack(vector *v, int x) {
-    if(isFull(v)) {
+    if (isFull(v)) {
         reserve(v, v->size > 0 ? v->size * 2 : 1);
     }
 
@@ -83,7 +83,7 @@ bool isVectorsEqual(vector *v1, vector *v2) {
     return true;
 }
 
-int* atVector(vector *v, size_t index) {
+int *atVector(vector *v, size_t index) {
     if (index > v->capacity - 1) {
         fprintf(stderr, "IndexError: a[%zu] is not exists", index);
         exit(1);
@@ -91,10 +91,10 @@ int* atVector(vector *v, size_t index) {
     return &v->data[index];
 }
 
-int* back(vector *v) {
+int *back(vector *v) {
     return atVector(v, v->capacity - 1);
 }
 
-int* front(vector *v) {
+int *front(vector *v) {
     return atVector(v, 0);
 }

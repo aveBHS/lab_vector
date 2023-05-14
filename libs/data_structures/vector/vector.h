@@ -1,18 +1,13 @@
-//
-// Created by avebh on 12.05.2023.
-//
-
 #include <stdbool.h>
 
 #ifndef LAB_V_VECTOR_H
 #define LAB_V_VECTOR_H
-
 #endif //LAB_V_VECTOR_H
 
 typedef struct vector {
-    int *data; // указатель на элементы вектора
-    size_t size; // размер вектора
-    size_t capacity; // вместимость вектора
+    int *data;
+    size_t size;
+    size_t capacity;
 } vector;
 
 vector createVector(size_t n);
